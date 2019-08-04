@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../dist/countdown.umd.js"></script>
+</head>
+<body>  
+    <div id="times"></div>
+    <div id="status">status</div>
+    <script>
+        var countdown = new Countdown({times: 10000, interval: 100})
+        var $times = document.querySelector('#times')
+        var $status = document.querySelector('#status')
+        countdown.on('end', (opts) => {
+            console.log('end')
+            console.log(opts)
+            $status.innerHTML = 'end'
+        })
+        countdown.on('change', (opts) => {
+            console.log('change')
+            console.log(opts)
+            let times = opts.times
+            let formatTimes = opts.formatTimes
+            $times.innerHTML = `${formatTimes.hours}:${formatTimes.minutes}:${formatTimes.seconds}:${formatTimes.milliseconds}`
+        })
+        countdown.start()
+    </script>
+</body>
+</html>

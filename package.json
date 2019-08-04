@@ -1,0 +1,31 @@
+{
+  "name": "countdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:cjs": "rollup --config --output.file ./dist/countdown.cjs.js -f cjs",
+    "build:amd": "rollup --config --output.file ./dist/countdown.amd.js -f amd",
+    "build:es": "rollup -c -o ./dist/countdown.es.js -f es",
+    "build:umd": "rollup -c -o ./dist/countdown.umd.js -f umd -n Countdown",
+    "build": "npm run  build:cjs && npm run build:amd && npm run build:es && npm run build:umd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuixingdeshizi/countdown.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuixingdeshizi/countdown/issues"
+  },
+  "homepage": "https://github.com/shuixingdeshizi/countdown#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  }
+}
